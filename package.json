@@ -1,0 +1,12 @@
+{
+  "name": "listatareasbackend",
+  "version": "1.0.0",
+  "description": "Backend del proyecto de listado de tareas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sebastian Agustin Maza",
+  "license": "ISC"
+}
