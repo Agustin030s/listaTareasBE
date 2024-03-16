@@ -5,6 +5,7 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import "./src/database/database.js";
+import tareaRouter from "./src/routes/tareas.routes.js";
 
 const app = express();
 app.set("port", process.env.PORT || 4000);
@@ -23,4 +24,4 @@ const __dirname = path.dirname(__filaname);
 
 app.use(express.static(path.join(__dirname, "/public")));
 
-// app.use("/api")
+app.use("/api", tareaRouter);

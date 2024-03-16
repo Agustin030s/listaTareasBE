@@ -1,4 +1,4 @@
-import Tarea from "../database/models/tarea";
+import Tarea from "../database/models/tarea.js";
 
 export const crearTarea = async (req, res) => {
   try {
