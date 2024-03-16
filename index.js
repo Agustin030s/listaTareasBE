@@ -22,4 +22,4 @@ const __dirname = path.dirname(__filaname);
 
 app.use(express.static(path.join(__dirname, "/public")));
 
-
+// app.use("/api")
