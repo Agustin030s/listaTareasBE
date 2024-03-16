@@ -14,3 +14,15 @@ export const crearTarea = async (req, res) => {
     });
   }
 };
+
+export const listarTareas = async (req, res) =>{
+    try {
+        const tareas = await Tarea.find();
+        res.status(200).json(tareas);
+    } catch (error) {
+        console.error(error);
+        res.status(404).json({
+            mensaje: "Ocurrio un error, no se pueden listar las tareas"
+        })
+    }
+} 
