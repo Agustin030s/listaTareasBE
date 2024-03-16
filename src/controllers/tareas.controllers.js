@@ -15,14 +15,27 @@ export const crearTarea = async (req, res) => {
   }
 };
 
-export const listarTareas = async (req, res) =>{
-    try {
-        const tareas = await Tarea.find();
-        res.status(200).json(tareas);
-    } catch (error) {
-        console.error(error);
-        res.status(404).json({
-            mensaje: "Ocurrio un error, no se pueden listar las tareas"
-        })
-    }
-} 
+export const listarTareas = async (req, res) => {
+  try {
+    const tareas = await Tarea.find();
+    res.status(200).json(tareas);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({
+      mensaje: "Ocurrio un error, no se pueden listar las tareas",
+    });
+  }
+};
+
+export const obtenerTarea = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const tareaBuscada = await Tarea.findById(id);
+    res.status(200).json(tareaBuscada);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({
+      mensaje: "No se encontro el producto buscado",
+    });
+  }
+};
