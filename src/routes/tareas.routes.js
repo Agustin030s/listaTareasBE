@@ -3,4 +3,6 @@ import { crearTarea } from "../controllers/tareas.controllers";
 
 const router = Router();
 
-router.route("/tareas").get(crearTarea);
+router.route("/tareas").post(crearTarea);
+
+export default router;
