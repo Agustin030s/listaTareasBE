@@ -45,11 +45,10 @@ export const editarTarea = async (req, res) => {
     const id = req.params.id;
     const tareaAEditar = await Tarea.findById(id);
 
-    if (!tareaAEditar) {
+    if (!tareaAEditar)
       res.status(404).json({
         mensaje: "No se encontro la tarea a editar",
       });
-    }
 
     await Tarea.findByIdAndUpdate(id, req.body);
     res.status(200).json({
@@ -59,6 +58,28 @@ export const editarTarea = async (req, res) => {
     console.error(error);
     res.status(500).json({
       mensaje: "Ocurrio un erro al editar la tarea",
+    });
+  }
+};
+
+export const borrarTarea = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const tareaABorrar = await Tarea.findById(id);
+
+    if (!tareaABorrar)
+      res.status(404).json({
+        mensaje: "No se encontro la tarea a borrar",
+      });
+
+    await Tarea.findByIdAndDelete(id);
+    res.status(200).json({
+      mensaje: "La tarea fue eliminada correctamente",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      mensaje: "Ocurrio un error al eliminar la tarea",
     });
   }
 };
