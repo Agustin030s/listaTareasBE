@@ -39,3 +39,26 @@ export const obtenerTarea = async (req, res) => {
     });
   }
 };
+
+export const editarTarea = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const tareaAEditar = await Tarea.findById(id);
+
+    if (!tareaAEditar) {
+      res.status(404).json({
+        mensaje: "No se encontro la tarea a editar",
+      });
+    }
+
+    await Tarea.findByIdAndUpdate(id, req.body);
+    res.status(200).json({
+      mensaje: "La tarea fue editada con exito",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      mensaje: "Ocurrio un erro al editar la tarea",
+    });
+  }
+};
